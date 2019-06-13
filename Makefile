@@ -13,8 +13,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/mylib.h | $(OBJDIR)
 	$(CC) $(CFLAGS) $< -o $@
 $(OBJDIR):
 	mkdir $(OBJDIR)
-$(SRCDIR):
-	mkdir $(SRCDIR)
 $(LIBDIR):
 	mkdir $(LIBDIR)
 $(BINDIR):
