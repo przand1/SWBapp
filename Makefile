@@ -5,11 +5,11 @@ BINDIR:=bin
 CC:=gcc
 CFLAGS:=-c -Wall
 
-$(BINDIR)/SWBapp: $(OBJDIR)/main.o $(LIBDIR)/mylib.a | $(BINDIR) $(OBJDIR) $(LIBDIR)
+$(BINDIR)/SWBapp: $(OBJDIR)/main.o $(LIBDIR)/mylib.a | $(BINDIR)
 	$(CC) $^ -o $@ -lm
-$(LIBDIR)/mylib.a: $(OBJDIR)/sqrt.o $(OBJDIR)/power.o $(OBJDIR)/bas_ops.o
+$(LIBDIR)/mylib.a: $(OBJDIR)/sqrt.o $(OBJDIR)/power.o $(OBJDIR)/bas_ops.o | $(LIBDIR)
 	ar rsv $@ $^
-$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/mylib.h | $(SRCDIR)
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(SRCDIR)/mylib.h | $(OBJDIR)
 	$(CC) $(CFLAGS) $< -o $@
 $(OBJDIR):
 	mkdir $(OBJDIR)
